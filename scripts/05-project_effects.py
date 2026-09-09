@@ -327,6 +327,7 @@ def main():
         "baseline_hotonly": projected_hist_hotonly,
         "forecast_coldonly": projected_forecast_coldonly,
         "baseline_coldonly": projected_hist_coldonly,
+        "fixed_beta": fixed_beta,
     }
     _out_dt = xr.DataTree.from_dict(_out)
 
@@ -394,6 +395,16 @@ def main():
         "poreallas_created_at": _datetime_now,
         "poreallas_uid": _uid,
         "poreallas_description": "Baseline projected cold temperature mortality effects",
+        "poreallas_temperature_uri": ERA5_URI,
+        "poreallas_socioeconomics_uri": SOCIOECONOMICS_URI,
+        "poreallas_model_parameters_uri": GAMMA_URI,
+        "poreallas_regions_uri": REGIONS_URI,
+    }
+
+    _out_dt["fixed_beta"].attrs |= {
+        "poreallas_created_at": _datetime_now,
+        "poreallas_uid": _uid,
+        "poreallas_description": "Fixed betas or temperature-mortality rates used in projections",
         "poreallas_temperature_uri": ERA5_URI,
         "poreallas_socioeconomics_uri": SOCIOECONOMICS_URI,
         "poreallas_model_parameters_uri": GAMMA_URI,

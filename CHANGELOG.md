@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Add `/fixed_beta` to output data store from `scripts/05-project_effects.py`. ([@brews](https://github.com/brews), [PR#63](https://github.com/ClimateImpactLab/poreallas/pull/63))
+
 - Update scripts to use new September ECMWF forecasts by default. ([@brews](https://github.com/brews), [PR#62](https://github.com/ClimateImpactLab/poreallas/pull/62))
 
 ## [0.6.0] - 2026-09-03
