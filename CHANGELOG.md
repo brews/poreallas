@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Format update to keep the ruff >= v0.16.0 overlords happy. ([@brews](https://github.com/brews))
+- Format update to keep the ruff >= v0.16.0 overlords happy. ([@brews](https://github.com/brews), [PR#65](https://github.com/ClimateImpactLab/poreallas/pull/65))
 
 ## [0.7.0] - 2026-09-09
 
