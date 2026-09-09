@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- 
+### Changed
+
+- Format update to keep the ruff >= v0.16.0 overlords happy. ([@brews](https://github.com/brews))
 
 ## [0.7.0] - 2026-09-09
 
