@@ -5,9 +5,8 @@ import datetime
 import os
 import uuid
 
-from dotenv import load_dotenv
 import xarray as xr
-
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -56,11 +55,11 @@ target_tasmin_paths = [
     for yr in range(START_YEAR, STOP_YEAR + 1)
 ]
 
-mfdataset_kwargs = dict(
-    join="outer",
-    coords="different",
-    compat="no_conflicts",
-)
+mfdataset_kwargs = {
+    "join": "outer",
+    "coords": "different",
+    "compat": "no_conflicts",
+}
 s51 = (
     xr.open_mfdataset(target_tasmax_paths, **mfdataset_kwargs)["mx2t24"]  # type: ignore[ty:invalid-argument-type]
     + xr.open_mfdataset(target_tasmin_paths, **mfdataset_kwargs)["mn2t24"]  # type: ignore[ty:invalid-argument-type]

@@ -10,8 +10,8 @@ import pytest
 import xarray as xr
 
 from poreallas.extract import (
-    _make_annual_tas,
     _make_30hbartlett_climtas,
+    _make_annual_tas,
     make_climtas,
     make_tas_monthly_histogram,
 )

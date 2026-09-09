@@ -16,10 +16,10 @@ import os
 import uuid
 
 import dask
-from dask_gateway import GatewayCluster  # type: ignore[ty:unresolved-import]
-from dotenv import load_dotenv
 import xarray as xr
 import xesmf as xe  # type: ignore[ty:unresolved-import]
+from dask_gateway import GatewayCluster  # type: ignore[ty:unresolved-import]
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -62,7 +62,7 @@ def open_era5(
     ds = xr.open_zarr(
         uri,
         chunks=None,
-        storage_options=dict(token="anon"),
+        storage_options={"token": "anon"},
     )
 
     # Grab only valid periods

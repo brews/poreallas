@@ -12,11 +12,11 @@ import os
 import re
 import uuid
 
-from dotenv import load_dotenv
 import fsspec
 import metacsv
 import numpy as np
 import xarray as xr
+from dotenv import load_dotenv
 
 load_dotenv()
 

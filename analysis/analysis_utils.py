@@ -2,12 +2,12 @@
 # ### Emily Zuetell
 ### July 7, 2026
 
-import xarray as xr
-import pandas as pd
 import geopandas as gpd
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import xarray as xr
 
 
 def get_baseline_period(effect_xr, years=30):
@@ -315,7 +315,6 @@ def make_csv(
         ]
     ]
     mo6_out.to_csv(f"2608_{hotonly}_6mo_{rate_l}_all_stats.csv", index=False)
-    return
 
 
 def build_stats_text(da, dim=None, fmt="{:.2f}"):
@@ -348,18 +347,19 @@ def add_stats_annotation(text, ax, loc="upper left"):
 
 
 ##### Plotting Functions #####
-from functools import lru_cache
+from functools import cache
+
 import regionmask
 
 
 # Get and store land data
-@lru_cache(maxsize=None)
+@cache
 def _get_land(crs):
     land = gpd.read_file(geodatasets.get_path("naturalearth land"))
     return land.cx[:, -60:90].to_crs(crs)
 
 
-@lru_cache(maxsize=None)
+@cache
 def _get_land_mask(lon_key, lat_key):
     dummy = xr.DataArray(
         np.zeros((len(lat_key), len(lon_key))),
@@ -425,7 +425,7 @@ def make_cmap(bounds, cm="bwr"):
         "PRGn",
         "BrBG",
     }
-    base_name = cm[:-2] if cm.endswith("_r") else cm
+    base_name = cm.removesuffix("_r")
     if base_name in diverging_cmaps:
         center_idx = len(colors) // 2
         colors[center_idx] = [0.95, 0.95, 0.95, 1]
@@ -448,7 +448,7 @@ def build_colormap(gdf=None, col=None, cm="bwr", vmin=None, vmax=None, n_colors=
         "PRGn",
         "BrBG",
     }
-    base_name = cm[:-2] if cm.endswith("_r") else cm
+    base_name = cm.removesuffix("_r")
 
     if base_name in diverging_cmaps:
         # Symmetric around zero, with a white center band
@@ -487,6 +487,7 @@ def build_colormap(gdf=None, col=None, cm="bwr", vmin=None, vmax=None, n_colors=
 
 
 import math
+
 import geodatasets
 
 land = gpd.read_file(geodatasets.get_path("naturalearth land"))
