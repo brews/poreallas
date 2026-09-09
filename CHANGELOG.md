@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- 
+### Changed
+
+- Update scripts to use new September ECMWF forecasts by default. ([@brews](https://github.com/brews), [PR#62](https://github.com/ClimateImpactLab/poreallas/pull/62))
 
 ## [0.6.0] - 2026-09-03
 
