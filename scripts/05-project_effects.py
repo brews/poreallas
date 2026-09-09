@@ -6,14 +6,13 @@ import datetime
 import os
 import uuid
 
-from dotenv import load_dotenv
 import isku
 import numpy as np
 import xarray as xr
+from dotenv import load_dotenv
 
 from poreallas.extract import make_climtas, make_tas_monthly_histogram
-from poreallas.project import mortality_effect_model, calculate_beta
-
+from poreallas.project import calculate_beta, mortality_effect_model
 
 load_dotenv()
 
@@ -333,7 +332,7 @@ def main():
 
     # Add metadata
     _uid = str(uuid.uuid4())
-    _datetime_now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    _datetime_now = datetime.datetime.now(datetime.UTC).isoformat()
 
     _out_dt.attrs |= {
         "poreallas_created_at": _datetime_now,
